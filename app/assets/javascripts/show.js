@@ -115,7 +115,7 @@ function init_Calendar(){
                                                 $.each(data, function(key, value){
                                             
                                                     $("td[data-day='" + value.day + "']").append("<li>" + value.event + " at " + value.time +"</li>");
-                                                     $("#eventbody div:last").append("<div class = 'eventpost'>").append(value.month + "-" + value.day + "-" + value.year + " " + value.event + " to start at " + value.time + " created on " + value.created_at );
+                                                     $("#eventbody div:last").append("<div class = 'eventpost'>").append(++value.month + "-" + value.day + "-" + value.year + " " + value.event + " to start at " + value.time + " created on " + value.created_at );
                                                     
 
                                                      
