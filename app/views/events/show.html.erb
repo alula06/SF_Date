@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<body>
+<div class= "content">
+	<div id = "selector">
+	<table class = "table table-striped">	
+		<thead>
+		<tr>
+			<th id = "columns"><a id = "last_Year" href="#"> << </a> </th>
+			<th id = "columns"><a id = "last_Month" href="#"> < </a></th>
+			<th id ="month_year" colspan = "3"></th>>
+			<th id = "columns"><a id = "next_Month" href="#"> > </a> </th>
+			<th id = "columns"><a id = "next_Year" href="#"> >> </a> </th>
+		</tr>
+		<tr>
+			<th id = "columns">Sun</th>
+			<th id = "columns">Mon</th>
+			<th id = "columns">Tue</th>
+			<th id = "columns">Wed</th>
+			<th id = "columns">Thu</th>
+			<th id = "columns">Fri</th>
+			<th id = "columns">Sat</th>
+		</tr>
+		</thead>
+		<tbody id = "body"></tbody>
+	</table>
+	
+
+	<div id = "setevent-outer">
+		<div id = "createevent-sidebar">
+		<h3>Create Event</h3>
+		<label>Time</label>
+		<select id = "time">
+			<option value="0">00:00</option>
+      		<option value="1">01:00</option>
+      		<option value="2">02:00</option>
+      		<option value="3">03:00</option>
+      		<option value="4">04:00</option>
+      		<option value="5">05:00</option>
+      		<option value="6">06:00</option>
+      		<option value="7">07:00</option>
+      		<option value="8">08:00</option>
+      		<option value="9">09:00</option>
+      		<option value="10">10:00</option>
+      		<option value="11">11:00</option>
+      		<option value="12">12:00</option>
+      		<option value="13">13:00</option>
+      		<option value="14">14:00</option>
+      		<option value="15">15:00</option>
+      		<option value="16">16:00</option>
+      		<option value="17">17:00</option>
+      		<option value="18">18:00</option>
+      		<option value="19">19:00</option>
+      		<option value="20">20:00</option>
+      		<option value="21">21:00</option>
+      		<option value="22">22:00</option>
+      		<option value="23">23:00</option>
+    	</select>
+
+    	<label>Description</label>
+    	<input type="text" id="description" placeholder="Description">
+		<br>
+		</div>
+
+		<div id = "eventfeed">
+			<h3>Event Feed</h3>
+			<div id = "eventbody"></div>
+		</div>
+
+	</div>
+
+	<div id = "eventlist">
+	</div>
+</body>
+</html>
