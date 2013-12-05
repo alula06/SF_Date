@@ -78,7 +78,7 @@ function init_Calendar(){
        if(input.length > 0 && timer.length > 0 && cell.length > 0){
             var temp = cell + " " + input + " at " + timer;
             $(this).text(temp);
-            $.post( "/events/create", { 'events':
+            $.post( "/events/create", { 'apps':
                                             {"event":input,
                                             "time":timer,
                                             "day": $(this).data('day'),
