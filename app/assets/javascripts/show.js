@@ -76,6 +76,7 @@ function init_Calendar(){
     $("#body td").click(function(){
        var input = $("#description").val();
        var timer = $("#time option:selected").text();
+       var location = $("#location").val();
        var cell = $(this).html();
        if(input.length > 0 && timer.length > 0 && cell.length > 0){
             var temp = cell + " " + input + " at " + timer;
@@ -85,7 +86,8 @@ function init_Calendar(){
                                             "time":timer,
                                             "day": $(this).data('day'),
                                             "month": month,
-                                            "year": year }
+                                            "year": year,
+                                            "location": location}
                                         });
             $("#description").val(' ');
             $("#time").val(' ');
@@ -93,6 +95,7 @@ function init_Calendar(){
         else if(cell.length > 0){
             var event = prompt("Please enter a description.");
             var time = prompt("Please enter a time.");
+            var location = prompt("Please enter a location.");
             if (event.length > 0 && time.length > 0) {
                 var temp = cell + " " + event + " at " + time;
                 $(this).text(temp);
@@ -100,8 +103,10 @@ function init_Calendar(){
                                             {"event":event,
                                             "day": $(this).data('day'),
                                             "time":time,
+                                            "location": location,
                                             "month": month,
-                                            "year": year}
+                                            "year": year,
+                                            "location": location}
                                         });
             }
         }
