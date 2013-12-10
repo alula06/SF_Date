@@ -18,6 +18,7 @@ html {
 
 body {
   padding-top: 60px;
+  background-color: #ffffcc;
 }
 
 section {
@@ -242,6 +243,9 @@ input {
 
 /* microposts */
 
+.spacing {
+    margin-top: 50px;
+}
 .microposts {
   list-style: none;
   margin: 10px 0 0 0;
@@ -266,4 +270,20 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+/* about */
+
+.item-1 {
+    float: left;
+    width: 375px;
+    margin-left: 14em
+}
+.item-2 {
+    float: left;
+    width: 200px;
+    margin-left:5em
+}
+#title {
+    margin-left: 7em
 }

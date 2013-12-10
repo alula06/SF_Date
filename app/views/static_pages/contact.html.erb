@@ -1,5 +1,40 @@
 <% provide(:title, 'Contact Us') %>
-<h1>Contact Us</h1>
-<p>
-  The contact info for SF DATE will be included here on this page.
-</p>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#nav_contactus_btn").addClass("active");
+  });
+</script>
+            
+<div class="span12" id="maincontent">
+  <h2 id="title"> <font size="5" color='black'>Contact Us</font></h2>
+  <div class="container">
+    <div class="item-1">
+      <br>
+      <form  action="" enctype="multipart/form-data">
+        <input type="hidden" name="action" value="submit">
+        <label for="exampleInputname">Name:</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="John Doe">
+        <br>
+        <label for="exampleInputEmail1">E-mail:</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="JDoe@sfsu.edu">
+        <br>
+        Questions/Comments:
+        <br>
+        <textarea class="form-control" rows="5" placeholder="I've met so many girls using SF Date!!"></textarea><br>
+        <button  class="btn btn-default"/> Send</button>
+      </form>
+    </div>
+    <div class="item-2">
+      <br><br><br><br>
+      <p>You can also reach us at:</p>
+      <p></p>
+      <p>800.SFDATE1</p>
+      <p></p>
+      <p>or</p>
+      <p>
+        <a href="mailto:customerservice@sfdate.com?Subject=Hello%20SFDATE!" target="_top">customerservice@sfdate.com</a>
+      </p>
+    </div>
+  </div>
+</div>

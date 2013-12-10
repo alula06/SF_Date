@@ -47,7 +47,7 @@ function init_Calendar(){
         $("#body tr:last").append("<td data-day='" + i + "' class = 'datenum'>" + date_Num.toString() + "</td>");  
         //Highlight column if it the day current day   
         if (date_Num == date && month == current.getMonth() && year == current.getFullYear()) {
-            $("#body td:last").css("cssText", "background-color: #eee");
+            $("#body td:last").css("cssText", "background-color: #C0C0C0");
         } 
         date_Num++;
     }
@@ -66,7 +66,7 @@ function init_Calendar(){
             }
             //Highlight column if it the day current day 
             if (date_Num == date && month == current.getMonth() && year == current.getFullYear()) {
-                $("#body td:last").css("cssText", "background-color: #eee")
+                $("#body td:last").css("cssText", "background-color: #C0C0C0")
             } 
             date_Num++;
         }

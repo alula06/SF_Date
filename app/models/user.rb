@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :age,  presence: true
   validates :hometown,  presence: true
-  validates :description, length: { maximum: 150 }
+  validates :description, presence: true, length: { minimum: 50 }
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
