@@ -4,10 +4,9 @@
       <!--<%= link_to "SF DATE", root_path, id: "logo" %>-->
       <div class="headlogo"><%= link_to image_tag("SFDate.png", alt: "SFDate"), root_path %></div>
       <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
+        <ul class="nav pull-right head">
           <% if signed_in? %>
+            <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Users", users_path %></li>
             <li><%= link_to "Events", events_path %></li>
             <li id="fat-menu" class="dropdown">
@@ -24,7 +23,24 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <div class="form">
+              <%= form_for(:session, url: sessions_path) do |f| %>
+                <div class="email">
+                  <%= f.text_field :email, :placeholder => "Email" %>
+                </div>
+              
+                <div class="password">
+                  <%= f.password_field :password, :placeholder => "Password" %>
+                </div>
+              
+                <div class='sign-in'>
+                  <%= f.submit "Sign in", class: "btn btn-custom" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="register">
+              <%= button_to "Register", signup_path, :method => "get", :class => "btn btn-custom" %>
+            </div>
           <% end %>
         </ul>
       </nav>
