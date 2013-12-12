@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210012136) do
+ActiveRecord::Schema.define(version: 20131212015012) do
 
   create_table "events", force: true do |t|
     t.string   "event"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131210012136) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
+    t.string   "user"
   end
 
   create_table "microposts", force: true do |t|

@@ -6,6 +6,7 @@ var date = current.getDate();
 var year = current.getFullYear();
 
 
+
 // array of month names 
 var monthNames = ["Jan","Feb","March","April","May","June","July","Aug","Sept","Oct","Nov", "Dec"];
 
@@ -33,7 +34,6 @@ function init_Calendar(){
 
     //Event Feed body
     $("#eventbody").append("<h3>Event Feed</h3><div><table>");
-
     
     var first_Day = get_First_Day(month, year);
     //Create empty columns before first day of month
@@ -47,7 +47,7 @@ function init_Calendar(){
         $("#body tr:last").append("<td data-day='" + i + "' class = 'datenum'>" + date_Num.toString() + "</td>");  
         //Highlight column if it the day current day   
         if (date_Num == date && month == current.getMonth() && year == current.getFullYear()) {
-            $("#body td:last").css("cssText", "background-color: #C0C0C0");
+            $("#body td:last").css("cssText", "background-color: #eee");
         } 
         date_Num++;
     }
@@ -66,7 +66,7 @@ function init_Calendar(){
             }
             //Highlight column if it the day current day 
             if (date_Num == date && month == current.getMonth() && year == current.getFullYear()) {
-                $("#body td:last").css("cssText", "background-color: #C0C0C0")
+                $("#body td:last").css("cssText", "background-color: #eee")
             } 
             date_Num++;
         }
@@ -74,12 +74,13 @@ function init_Calendar(){
 
     //When you click on a column cell
     $("#body td").click(function(){
+       var user = $("#userhidden").text();
        var input = $("#description").val();
        var timer = $("#time option:selected").text();
        var location = $("#location").val();
        var cell = $(this).html();
-       if(input.length > 0 && timer.length > 0 && cell.length > 0){
-            var temp = cell + " " + input + " at " + timer;
+       if(input.length > 0 && timer.length > 0 && cell.length > 0 && location.length > 0){
+            var temp = cell + " " + input + " on " + timer + " at " + location;
             $(this).text(temp);
             $.post( "/events/create", { 'apps':
                                             {"events":input,
@@ -87,26 +88,30 @@ function init_Calendar(){
                                             "day": $(this).data('day'),
                                             "month": month,
                                             "year": year,
-                                            "location": location}
+                                            "location:":location,
+                                            "user:": user}
                                         });
             $("#description").val(' ');
             $("#time").val(' ');
+            $("#location").val(' ');
+
         }
         else if(cell.length > 0){
-            var event = prompt("Please enter a description.");
+            var user = $("#usernamehidden").text();
+            var event = prompt("Please enter an event.");
             var time = prompt("Please enter a time.");
             var location = prompt("Please enter a location.");
-            if (event.length > 0 && time.length > 0) {
-                var temp = cell + " " + event + " at " + time;
+            if (event.length > 0 && time.length > 0 && location.length > 0) {
+                var temp = cell + " " + event + " on " + time + " at " + location;
                 $(this).text(temp);
                 $.post( "/events/create", { 'apps':
                                             {"event":event,
                                             "day": $(this).data('day'),
                                             "time":time,
-                                            "location": location,
                                             "month": month,
                                             "year": year,
-                                            "location": location}
+                                            "location": location,
+                                            "user": user}
                                         });
             }
         }
@@ -121,7 +126,8 @@ function init_Calendar(){
                                                 $.each(data, function(key, value){
                                                     
                                                     $("td[data-day='" + value.day + "']").append("<p class = 'tddesc'>Event: " + value.event + "</p><p class = 'tddesc'>Time: " + value.time + "</p><p class ='tddesc'>Location: " + value.location + "</p><br>");
-                                                     $("#eventbody table:last").append("<tr><td id = 'eventdate'>"+ ++value.month + "-" + value.day + "-" + value.year + "</td><td = 'eventdesc'>" + value.event + " to start at " + value.time + " created on " + value.created_at + "</td></tr>"); 
+                                                     $("#eventbody table:last").append("<tr id = 'footerc'><td id = 'eventdate' colspan = '2'><b>Date:</b> "+ ++value.month + "-" + value.day + "-" + value.year + "</td><td id= 'eventdesc'><b>Event:</b> " + value.event
+                                                                                       + "</td><td id='eventtime' colspan = '2'><b>Time:</b> " + value.time + "</td><td id = 'eventuser'><b>User:</b> " + value.user + "</td><td id= 'eventloc'><b>Location:</b> " + value.location  + "</td> </tr>"); 
                  
 
                                                 });

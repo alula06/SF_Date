@@ -4,8 +4,10 @@
 </head>
 
 <body>
+<div id = "usernamehidden"><%= current_user.name %></div>
+<div id = "useridhidden"><%= current_user.id %></div>
 <div class= "content">
-	<table class = "table table-striped" border="1">
+	<table class = "table table-striped">	
 		<thead>
 		<tr>
 			<th id = "columns"><a id = "last_Year" href="#"> << </a> </th>
@@ -26,6 +28,7 @@
 		</thead>
 		<tbody id = "body"></tbody>
 	</table>
+	
 
 	<div id = "setevent-outer">
 		<div id = "createevent-sidebar">
